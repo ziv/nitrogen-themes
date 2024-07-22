@@ -1,7 +1,7 @@
 import { tags as t } from '@lezer/highlight';
-import { generateTheme, themeColors, themeStyles } from './utils.ts';
+import { themeColors, themeStyles } from './utils.js';
 
-export default generateTheme(
+export default [
     themeColors(
         '#200020',
         '#D0D0FF',
@@ -21,4 +21,4 @@ export default generateTheme(
         ['#60B0FF', t.keyword],
         ['#B0FFF0', t.definitionKeyword],
     ]),
-);
+];

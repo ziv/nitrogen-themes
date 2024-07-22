@@ -3,6 +3,7 @@ import dts from 'vite-plugin-dts'
 
 export default defineConfig({
     build: {
+        minify: false, // todo temporary
         lib: {
             entry: {
                 index: 'src/index.ts',
@@ -10,6 +11,9 @@ export default defineConfig({
                 dracula: 'src/dracula.ts'
             },
             formats: ['es'],
+        },
+        rollupOptions: {
+            external: ['@lezer/highlight', '@codemirror/view', '@codemirror/language', '@codemirror/state']
         },
     },
     plugins: [

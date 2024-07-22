@@ -1,7 +1,7 @@
 import { tags as t } from '@lezer/highlight';
-import { generateTheme, themeColors, themeStyles } from './utils.ts';
+import { themeColors, themeStyles } from './utils.js';
 
-export default generateTheme(
+export default [
     themeColors(
         '#2d2f3f',
         '#f8f8f2',
@@ -19,6 +19,6 @@ export default generateTheme(
         ['#ff79c6', [t.keyword, t.operator]],
         ['#8be9fd', [t.definitionKeyword, t.typeName]],
         ['#f8f8f2', t.definition(t.typeName)],
-        ['#50fa7b', [t.className, t.definition(t.propertyName), t.function(t.variableName), t.attributeName ]],
+        ['#50fa7b', [t.className, t.definition(t.propertyName), t.function(t.variableName), t.attributeName]],
     ]),
-);
+];

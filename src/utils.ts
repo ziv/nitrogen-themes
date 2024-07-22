@@ -1,6 +1,6 @@
 import type { Tag } from '@lezer/highlight';
 import { EditorView } from '@codemirror/view';
-import { HighlightStyle, syntaxHighlighting } from '@codemirror/language';
+import { HighlightStyle, syntaxHighlighting, TagStyle } from '@codemirror/language';
 import { Extension } from '@codemirror/state';
 
 export type Color = string;
@@ -37,9 +37,6 @@ export function themeColors(background: Color, foreground: Color, caret: Color, 
 
 
 export function themeStyles(items: [Color, T][]) {
-    return syntaxHighlighting(HighlightStyle.define(items.map(i => ({tag: i[1], color: i[0]}))));
-}
-
-export function generateTheme(t: Extension, s: Extension) {
-    return [t, s];
+    const specs: TagStyle[] = items.map(([color, tag]) => ({color, tag}));
+    return syntaxHighlighting(HighlightStyle.define(specs));
 }
